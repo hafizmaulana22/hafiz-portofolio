@@ -1,7 +1,5 @@
-
 const API_KEY = '33a0e65cfd84ec36c73eb90cdc9ba179';
-const BASE_URL = 'https:
-
+const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 const cityInput = document.getElementById('cityInput');
 const result = document.getElementById('result');
@@ -10,11 +8,9 @@ const errorBox = document.getElementById('errorBox');
 const errorMsg = document.getElementById('errorMsg');
 const quickCities = document.getElementById('quickCities');
 
-
 cityInput.addEventListener('keydown', e => {
     if (e.key === 'Enter') getWeather();
 });
-
 
 async function getWeather() {
     const city = cityInput.value.trim();
@@ -48,30 +44,24 @@ async function getWeather() {
     }
 }
 
-
 function displayWeather(data) {
-    
     document.getElementById('cityName').textContent = data.name;
     document.getElementById('cityCountry').textContent = data.sys.country;
     document.getElementById('dateTime').textContent = getDateTime(data.timezone);
 
-    
     const icon = data.weather[0].icon;
-    document.getElementById('weatherIcon').src = `https:
+    document.getElementById('weatherIcon').src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     document.getElementById('weatherIcon').alt = data.weather[0].description;
 
-    
     document.getElementById('tempMain').textContent = Math.round(data.main.temp);
     document.getElementById('weatherDesc').textContent = data.weather[0].description;
     document.getElementById('feelsLike').textContent = `Terasa seperti ${Math.round(data.main.feels_like)}°C`;
 
-    
     document.getElementById('humidity').textContent = `${data.main.humidity}%`;
     document.getElementById('wind').textContent = `${data.wind.speed} m/s`;
     document.getElementById('visibility').textContent = `${(data.visibility / 1000).toFixed(1)} km`;
     document.getElementById('pressure').textContent = `${data.main.pressure} hPa`;
 
-    
     document.getElementById('sunrise').textContent = formatTime(data.sys.sunrise, data.timezone);
     document.getElementById('sunset').textContent = formatTime(data.sys.sunset, data.timezone);
 
@@ -81,12 +71,10 @@ function displayWeather(data) {
     quickCities.style.display = 'none';
 }
 
-
 function searchCity(city) {
     cityInput.value = city;
     getWeather();
 }
-
 
 function formatTime(unixTimestamp, timezoneOffset) {
     const date = new Date((unixTimestamp + timezoneOffset) * 1000);
@@ -94,7 +82,6 @@ function formatTime(unixTimestamp, timezoneOffset) {
     const minutes = String(date.getUTCMinutes()).padStart(2, '0');
     return `${hours}:${minutes}`;
 }
-
 
 function getDateTime(timezoneOffset) {
     const now = new Date();
@@ -106,7 +93,6 @@ function getDateTime(timezoneOffset) {
 
     return `${hari[local.getDay()]}, ${local.getDate()} ${bulan[local.getMonth()]} ${local.getFullYear()} · ${String(local.getHours()).padStart(2, '0')}:${String(local.getMinutes()).padStart(2, '0')}`;
 }
-
 
 function showLoader() {
     loader.style.display = 'flex';
