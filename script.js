@@ -16,7 +16,6 @@ for (let i = 0; i < 30; i++) {
     particleContainer.appendChild(p);
 }
 
-
 const typedEl = document.getElementById('typed-title');
 const phrases = [
     'Web Developer',
@@ -43,7 +42,6 @@ function typeLoop() {
     typedEl.textContent = current.slice(0, charIdx);
 
     if (!isDeleting && charIdx === current.length) {
-        // pause before deleting
         setTimeout(() => { isDeleting = true; typeLoop(); }, 1800);
         return;
     }
@@ -57,7 +55,6 @@ function typeLoop() {
 }
 typeLoop();
 
-
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -68,7 +65,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
 
 let skillsAnimated = false;
 
@@ -95,19 +91,16 @@ const sections = document.querySelectorAll('[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
-    // Shadow on scroll
     if (window.scrollY > 20) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
 
-    // Progress Bar
     const totalHeight = document.body.scrollHeight - window.innerHeight;
     const progress = (window.scrollY / totalHeight) * 100;
     if (progressBar) progressBar.style.width = progress + '%';
 
-    // Active nav link highlight
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
@@ -124,7 +117,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Smooth scroll for nav links
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
@@ -138,11 +130,9 @@ navLinks.forEach(link => {
     });
 });
 
-
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 
-// Load saved preference
 if (localStorage.getItem('theme') === 'light') {
     document.body.classList.add('light');
     themeIcon.className = 'fas fa-sun';
@@ -155,18 +145,15 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
 });
 
-
 function handleFormSubmit(e) {
     e.preventDefault();
 
     const btn = document.getElementById('btn-send');
     const successBox = document.getElementById('form-success');
 
-    // Loading state
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
     btn.disabled = true;
 
-    // Simulate sending (replace with actual fetch/EmailJS/etc)
     setTimeout(() => {
         btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Pesan';
         btn.disabled = false;
@@ -180,7 +167,6 @@ function handleFormSubmit(e) {
     }, 1500);
 }
 
-
 document.querySelectorAll('.skill-tag').forEach(tag => {
     tag.addEventListener('click', function () {
         this.style.transform = 'scale(0.92)';
@@ -188,30 +174,23 @@ document.querySelectorAll('.skill-tag').forEach(tag => {
     });
 });
 
-
 const cursorDot = document.getElementById('cursor-dot');
 const cursorOutline = document.getElementById('cursor-outline');
 
-// Hanya jalankan di perangkat non-touch (desktop)
 if (window.matchMedia("(pointer: fine)").matches) {
     window.addEventListener('mousemove', (e) => {
         const posX = e.clientX;
         const posY = e.clientY;
 
-        // Update posisi dot (langsung)
         cursorDot.style.left = `${posX}px`;
         cursorDot.style.top = `${posY}px`;
 
-        // Update posisi outline dengan sedikit delay/animasi di CSS
-        // Untuk animasi yang sangat mulus bisa pakai requestAnimationFrame, 
-        // tapi CSS transition yang sudah kita buat sudah cukup baik.
         cursorOutline.animate({
             left: `${posX}px`,
             top: `${posY}px`
         }, { duration: 500, fill: "forwards" });
     });
 
-    // Efek Hover pada elemen interaktif
     const interactives = document.querySelectorAll('a, button, .skill-tag, .portfolio-card, input, textarea');
 
     interactives.forEach(el => {
@@ -223,7 +202,6 @@ if (window.matchMedia("(pointer: fine)").matches) {
         });
     });
 
-    // Efek klik
     window.addEventListener('mousedown', () => {
         cursorOutline.classList.add('click-active');
     });
@@ -232,36 +210,7 @@ if (window.matchMedia("(pointer: fine)").matches) {
     });
 }
 
-
-// Menggunakan Audio Context atau base64 untuk menghindari masalah download
-// Di sini kita gunakan suara pop/click synth kecil via base64
-const clickSound = new Audio('data:audio/mp3;base64,//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/9k=');
-const hoverSound = new Audio('data:audio/mp3;base64,//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/9k=');
-// Catatan: Base64 audio di atas adalah audio kosong buatan sebagai *placeholder* aman. 
-// Untuk suara asli, idealnya menggunakan Web Audio API (Oscillator) agar ringan dan seketika.
-
-function playHoverSound() {
-    // Membuat suara 'bloop' singkat pakai Oscillator
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gainNode = ctx.createGain();
-
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(400, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.1);
-
-    gainNode.gain.setValueAtTime(0.02, ctx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
-
-    osc.connect(gainNode);
-    gainNode.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(ctx.currentTime + 0.1);
-}
-
 function playClickSound() {
-    // Suara 'klik' tajam
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
     const osc = ctx.createOscillator();
     const gainNode = ctx.createGain();
@@ -281,8 +230,5 @@ function playClickSound() {
 }
 
 document.querySelectorAll('a, button, .portfolio-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        // playHoverSound() // Uncomment jika ingin ada suara saat hover (kadang mengganggu)
-    });
     el.addEventListener('click', playClickSound);
 });
