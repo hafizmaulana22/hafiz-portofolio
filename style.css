@@ -106,6 +106,73 @@ body::before {
 }
 
 
+.progress-bar-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--cyan));
+    width: 0%;
+    box-shadow: 0 0 15px var(--glow);
+}
+
+.bg-glow {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    animation: orbMove 25s infinite alternate ease-in-out;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--accent);
+    top: -100px;
+    left: -100px;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--cyan);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 300px;
+    height: 300px;
+    background: var(--accent2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.08;
+    animation-duration: 35s;
+}
+
+@keyframes orbMove {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(100px, 50px) scale(1.1); }
+    66% { transform: translate(-50px, 120px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
 .particles {
     position: fixed;
     inset: 0;
@@ -240,16 +307,34 @@ body::before {
 .card {
     background: var(--card);
     border: 1px solid var(--card-border);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 36px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 24px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(108, 99, 255, 0.15);
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(167, 139, 250, 0.5);
+    box-shadow: 
+        0 25px 80px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(108, 99, 255, 0.15);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    left: 100%;
 }
 
 
@@ -278,18 +363,19 @@ body::before {
 }
 
 .avatar-ring {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    padding: 3px;
-    background: linear-gradient(135deg, var(--accent), var(--cyan));
-    animation: spin 8s linear infinite;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--accent), var(--cyan), var(--accent2));
+    animation: rotateGlow 6s linear infinite;
+    box-shadow: 0 0 30px var(--glow);
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); box-shadow: 0 0 20px var(--glow); }
+    50% { box-shadow: 0 0 40px var(--accent); }
+    100% { transform: rotate(360deg); box-shadow: 0 0 20px var(--glow); }
 }
 
 .avatar-inner {
@@ -510,6 +596,19 @@ body.light .hero-name {
     font-size: 14px;
     font-weight: 600;
     color: var(--text);
+}
+
+.education-val {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.univ-logo {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
 

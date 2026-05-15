@@ -1,7 +1,5 @@
-
-
-
 const particleContainer = document.getElementById('particles');
+const progressBar = document.getElementById('progressBar');
 
 for (let i = 0; i < 30; i++) {
     const p = document.createElement('div');
@@ -103,6 +101,11 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('scrolled');
     }
+
+    // Progress Bar
+    const totalHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = (window.scrollY / totalHeight) * 100;
+    if (progressBar) progressBar.style.width = progress + '%';
 
     // Active nav link highlight
     let current = '';
