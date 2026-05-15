@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hafiz Maulana — Web Developer & UI Designer</title>
+    <meta name="description"
+        content="Profil pribadi Hafiz Maulana — Web Developer & UI Designer dari Banda Aceh, Indonesia." />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+
+    <div class="particles" id="particles"></div>
+
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <div class="nav-logo">HM<span>.</span></div>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link">Beranda</a>
+
+                <a href="#portfolio" class="nav-link">Portofolio</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle tema">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+
+
+        <div class="card hero reveal" id="hero" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+            <div class="avatar-wrap">
+                <div class="avatar-ring">
+                    <div class="avatar-inner">
+                        <img src="foto.jpg" alt="Foto Hafiz Maulana" class="avatar-img"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        <span class="avatar-fallback">HM</span>
+                    </div>
+                </div>
+                <div class="status-dot"></div>
+            </div>
+            <div class="hero-info">
+                <div class="badge">✦ Available for work</div>
+                <h1 class="hero-name">Hafiz Maulana</h1>
+                <div class="hero-title" id="typed-title"></div>
+                <p class="hero-bio">
+                    Saya seorang pengembang web yang bersemangat dalam menciptakan pengalaman
+                    digital yang indah dan fungsional. Berfokus pada desain modern, performa
+                    tinggi, dan kode yang bersih.
+                </p>
+                <div class="socials">
+                    <a href="https://github.com/hafizmaulana22" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://instagram.com/hfzmulna" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="mailto:hafizmaulana.mbo@gmail.com" class="social-btn"><i class="fas fa-envelope"></i>
+                        Email</a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+            <div class="section-title"><i class="fas fa-id-card"></i> Informasi Pribadi</div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-user"></i></div>
+                    <div>
+                        <div class="info-label">Nama Lengkap</div>
+                        <div class="info-val">Hafiz Maulana</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-cake-candles"></i></div>
+                    <div>
+                        <div class="info-label">Tanggal Lahir</div>
+                        <div class="info-val">22 Mei 2007</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <div class="info-label">Lokasi</div>
+                        <div class="info-val">Banda Aceh, Indonesia</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <div class="info-label">Telepon</div>
+                        <div class="info-val">+62 82228080260</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="info-label">Email</div>
+                        <div class="info-val">hafizmaulana.mbo@gmail.com</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <div class="info-label">Pendidikan</div>
+                        <div class="info-val">S1 Teknologi Informasi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="card reveal" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+            <div class="section-title"><i class="fas fa-chart-bar"></i> Statistik</div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num" id="proj-count">0</div>
+                    <div class="stat-label">Proyek Selesai</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="exp-count">0</div>
+                    <div class="stat-label">Tahun Pengalaman</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="client-count">0</div>
+                    <div class="stat-label">Klien Puas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="cert-count">0</div>
+                    <div class="stat-label">Sertifikasi</div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="card reveal" id="portfolio" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+            <div class="section-title"><i class="fas fa-folder-open"></i> Portofolio</div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-icon"><i class="fas fa-cloud-sun"></i></div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-title">Aplikasi Cuaca Real-Time</div>
+                        <div class="portfolio-stack">HTML · CSS · JavaScript · OpenWeather API</div>
+                        <p class="portfolio-desc">Aplikasi cuaca berbasis web yang menampilkan informasi cuaca real-time
+                            berdasarkan lokasi pengguna menggunakan API publik.</p>
+                    </div>
+                    <a href="cuaca/index.html" target="_blank" class="portfolio-link" title="Buka Aplikasi Cuaca"><i
+                            class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card reveal" id="contact" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+            <div class="section-title"><i class="fas fa-paper-plane"></i> Hubungi Saya</div>
+            <div class="contact-wrap">
+                <div class="contact-info">
+                    <p class="contact-desc">Punya proyek menarik atau ingin berkolaborasi? Jangan ragu untuk menghubungi
+                        saya!</p>
+                    <div class="contact-links">
+                        <a href="mailto:hafizmaulana.mbo@gmail.com" class="contact-link-item">
+                            <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
+                            <span>hafizmaulana.mbo@gmail.com</span>
+                        </a>
+                        <a href="tel:+6282228080260" class="contact-link-item">
+                            <div class="contact-link-icon"><i class="fas fa-phone"></i></div>
+                            <span>+62 822 2808 0260</span>
+                        </a>
+                        <div class="contact-link-item">
+                            <div class="contact-link-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <span>Banda Aceh, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <input type="text" id="form-name" class="form-input" placeholder="Nama kamu" required />
+                        <label class="form-label" for="form-name">Nama</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="form-email" class="form-input" placeholder="Email kamu" required />
+                        <label class="form-label" for="form-email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="form-msg" class="form-input form-textarea" placeholder="Pesan kamu..." rows="4"
+                            required></textarea>
+                        <label class="form-label" for="form-msg">Pesan</label>
+                    </div>
+                    <button type="submit" class="btn-send" id="btn-send">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                    <div class="form-success" id="form-success">
+                        <i class="fas fa-check-circle"></i> Pesan berhasil dikirim! Terima kasih.
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div><!-- /container -->
+
+    <footer style="position: relative; z-index: 1;">
+        <div class="footer">
+            Dibuat </span> oleh <span>Hafiz Maulana</span> &nbsp;·&nbsp; &copy; 2025
+        </div>
+        <br />
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

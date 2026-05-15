@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplikasi Cuaca Real-Time</title>
+    <meta name="description" content="Aplikasi cuaca real-time berbasis lokasi kota." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="bg-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <div class="app">
+
+
+        <div class="header">
+            <div class="logo"><i class="fas fa-cloud-sun"></i></div>
+            <h1>Cuaca Real-Time</h1>
+            <p class="subtitle">Cari informasi cuaca kota mana saja</p>
+        </div>
+
+
+        <div class="search-box">
+            <i class="fas fa-magnifying-glass search-icon"></i>
+            <input type="text" id="cityInput" placeholder="Masukkan nama kota..." autocomplete="off" />
+            <button id="searchBtn" onclick="getWeather()">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+
+        <div class="loader" id="loader">
+            <div class="spinner"></div>
+            <p>Mengambil data cuaca...</p>
+        </div>
+
+
+        <div class="error-box" id="errorBox">
+            <i class="fas fa-triangle-exclamation"></i>
+            <p id="errorMsg">Kota tidak ditemukan.</p>
+        </div>
+
+
+        <div class="result" id="result">
+
+
+            <div class="result-top">
+                <div class="city-info">
+                    <div class="city-name" id="cityName">—</div>
+                    <div class="city-country" id="cityCountry">—</div>
+                    <div class="date-time" id="dateTime">—</div>
+                </div>
+                <img class="weather-icon" id="weatherIcon" src="" alt="Ikon Cuaca" />
+            </div>
+
+
+            <div class="temp-block">
+                <span class="temp-main" id="tempMain">—</span>
+                <span class="temp-unit">°C</span>
+            </div>
+            <div class="weather-desc" id="weatherDesc">—</div>
+
+
+            <div class="feels-like" id="feelsLike">Terasa seperti —°C</div>
+
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-droplet"></i></div>
+                    <div class="stat-val" id="humidity">—</div>
+                    <div class="stat-label">Kelembaban</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-wind"></i></div>
+                    <div class="stat-val" id="wind">—</div>
+                    <div class="stat-label">Angin</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                    <div class="stat-val" id="visibility">—</div>
+                    <div class="stat-label">Visibilitas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-gauge-high"></i></div>
+                    <div class="stat-val" id="pressure">—</div>
+                    <div class="stat-label">Tekanan</div>
+                </div>
+            </div>
+
+
+            <div class="sun-row">
+                <div class="sun-item">
+                    <i class="fas fa-sun sun-rise"></i>
+                    <div>
+                        <div class="sun-label">Matahari Terbit</div>
+                        <div class="sun-val" id="sunrise">—</div>
+                    </div>
+                </div>
+                <div class="sun-divider"></div>
+                <div class="sun-item">
+                    <i class="fas fa-moon sun-set"></i>
+                    <div>
+                        <div class="sun-label">Matahari Terbenam</div>
+                        <div class="sun-val" id="sunset">—</div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /result -->
+
+
+        <div class="quick-cities" id="quickCities">
+            <p class="quick-label">Kota Populer</p>
+            <div class="quick-btns">
+                <button class="quick-btn" onclick="searchCity('Jakarta')">Jakarta</button>
+                <button class="quick-btn" onclick="searchCity('Banda Aceh')">Banda Aceh</button>
+                <button class="quick-btn" onclick="searchCity('Surabaya')">Surabaya</button>
+                <button class="quick-btn" onclick="searchCity('Bali')">Bali</button>
+                <button class="quick-btn" onclick="searchCity('Medan')">Medan</button>
+            </div>
+        </div>
+
+    </div><!-- /app -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>
