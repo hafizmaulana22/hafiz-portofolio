@@ -93,32 +93,7 @@ const skillBarsSection = document.getElementById('skill-bars');
 if (skillBarsSection) skillBarObserver.observe(skillBarsSection);
 
 
-function animateCount(el, target, suffix = '') {
-    let current = 0;
-    const step = Math.ceil(target / 60);
-    const timer = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.textContent = current + suffix;
-        if (current >= target) clearInterval(timer);
-    }, 25);
-}
 
-let counterDone = false;
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting && !counterDone) {
-            counterDone = true;
-            animateCount(document.getElementById('proj-count'), 42, '+');
-            animateCount(document.getElementById('exp-count'), 5, '+');
-            animateCount(document.getElementById('client-count'), 30, '+');
-            animateCount(document.getElementById('cert-count'), 8, '');
-            counterObserver.disconnect();
-        }
-    });
-}, { threshold: 0.3 });
-
-const statsGrid = document.querySelector('.stats-grid');
-if (statsGrid) counterObserver.observe(statsGrid);
 
 
 const navbar = document.getElementById('navbar');
