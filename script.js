@@ -92,10 +92,6 @@ const skillBarObserver = new IntersectionObserver((entries) => {
 const skillBarsSection = document.getElementById('skill-bars');
 if (skillBarsSection) skillBarObserver.observe(skillBarsSection);
 
-
-
-
-
 const navbar = document.getElementById('navbar');
 const sections = document.querySelectorAll('[id]');
 const navLinks = document.querySelectorAll('.nav-link');
