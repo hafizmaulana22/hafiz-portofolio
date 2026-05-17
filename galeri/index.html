@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Gallery | Hafiz Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">HG<span>allery</span></div>
+            <ul>
+                <li><a href="#" class="active">All</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Gallery <span>Kami</span></h1>
+            <p>Kumpulan Gambar Kebersamaan Kami</p>
+        </section>
+
+        <section class="gallery-grid" id="galleryGrid">
+            <div class="gallery-item" data-category="nature">
+                <img src="img/foto1.jpg" alt="Nature Scene 1">
+                <div class="overlay">
+                    <span>1</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="tech">
+                <img src="img/foto2.jpg" alt="Tech Scene 1">
+                <div class="overlay">
+                    <span>2</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="architecture">
+                <img src="img/foto3.jpg" alt="Architecture Scene 1">
+                <div class="overlay">
+                    <span>3</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="img/foto4.jpg" alt="Nature Scene 2">
+                <div class="overlay">
+                    <span>4</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="tech">
+                <img src="img/foto5.jpg" alt="Tech Scene 2">
+                <div class="overlay">
+                    <span>5</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="architecture">
+                <img src="img/foto6.jpg" alt="Architecture Scene 2">
+                <div class="overlay">
+                    <span>6</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <div id="caption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Mei 16 Hafiz Maulana</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
