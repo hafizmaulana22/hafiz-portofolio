@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Latar belakang gradient khas portofolio */
+    background: linear-gradient(135deg, #10121a, #1b2030);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    width: 340px;
+}
+
+#output-screen {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 40px;
+    text-align: right;
+    color: #fff;
+    padding: 20px 10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#output-screen::placeholder {
+    color: rgba(255,255,255,0.3);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    padding: 20px 0;
+    font-size: 22px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 7px rgba(255,255,255,0.05),
+                inset 3px 3px 5px rgba(0,0,0,0.5);
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    color: #fff;
+    box-shadow: inset -3px -3px 7px rgba(255,255,255,0.1),
+                inset 3px 3px 5px rgba(0,0,0,0.7);
+}
+
+.btn:active {
+    box-shadow: inset 2px 2px 5px rgba(255,255,255,0.05),
+                inset -3px -3px 7px rgba(0,0,0,0.5);
+}
+
+.operator {
+    color: #00d2ff;
+}
+
+.operator:hover {
+    color: #3ae0ff;
+}
+
+.equal {
+    background: #00d2ff;
+    color: #10121a;
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+}
+
+.equal:hover {
+    color: #10121a;
+    background: #3ae0ff;
+    box-shadow: 0 5px 20px rgba(0, 210, 255, 0.6);
+}
